@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rong姐姐最漂亮</title>
+</head>
+<body>
+    樊荣喜欢什么？
+    <br><br>
+    长的<input type="checkbox" id="long">
+    短的<input type="checkbox" id="short">
+    <br><br>
+    <button onclick="test()">测试</button>
+</body>
+<script>
+    // 也可以用jquery
+
+    //........................
+
+    //用纯js来处理
+    //监听按钮，测试结果
+    function test(){
+        var check=document.getElementsByTagName('input');
+        //获取long元素
+        var longCheck=document.getElementById('long');
+        //获取短
+        var shortCheck=document.getElementById('short');
+        
+        //console.log(longCheck.checked+'--'+shortCheck.checked)
+
+        if(longCheck.checked==true&&shortCheck.checked==true){
+            //请求所有
+            alert('我全要~')
+        }
+        if(longCheck.checked==false&&shortCheck.checked==false){
+            //请求所有
+            alert('我全要~')
+        }
+        // 两个没有同时选中或者不选中
+        if(longCheck.checked==true&&shortCheck.checked==false){
+            //长的被选中
+            alert('我要吃长的~')
+        }
+        if(shortCheck.checked==true&&longCheck.checked==false){
+            alert('我要吃短的~')
+        }
+    
+
+
+    }
+
+
+</script>
+</html>
