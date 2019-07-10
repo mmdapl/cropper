@@ -16,9 +16,7 @@
 </body>
 <script>
     // 也可以用jquery
-
     //........................
-
     //用纯js来处理
     //监听按钮，测试结果
     function test(){
@@ -28,27 +26,56 @@
         //获取短
         var shortCheck=document.getElementById('short');
         
+        // 定义过滤后的list
+        var result;
         //console.log(longCheck.checked+'--'+shortCheck.checked)
-
         if(longCheck.checked==true&&shortCheck.checked==true){
             //请求所有
-            alert('我全要~')
+            result=list
         }
         if(longCheck.checked==false&&shortCheck.checked==false){
             //请求所有
-            alert('我全要~')
+            result=list
         }
         // 两个没有同时选中或者不选中
         if(longCheck.checked==true&&shortCheck.checked==false){
             //长的被选中
-            alert('我要吃长的~')
+            reuslt=getResultList(list,long)
         }
         if(shortCheck.checked==true&&longCheck.checked==false){
-            alert('我要吃短的~')
+            //short 被选中
+            reuslt=getResultList(list,long)
         }
+        //此时result为被选中或者没有全部选中的值
+        //可以将result值,作为过滤后的list,注入到页面上;
+
+        //....... 此处脚本注入;
+        
     
+    }
 
-
+    //根据条件,遍历查询
+    function getResultList(list,value){
+        //list:全部数据的list
+        //value :选中的值long short
+        
+        // 结果list
+        var resultList=new Array();
+        var count=0;
+        //开始遍历
+        for(var i=0;i<list.length();i++){
+            if(list[i]==value){
+                resultList[count]=value;
+                count++;
+            }
+        }
+        if(count==0){
+            //list中没有找到long或者short的值;
+            return list;
+        }else{
+            //循环完成,返回结果list
+            return resultList;
+        }
     }
 
 
